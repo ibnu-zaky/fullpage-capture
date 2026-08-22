@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Full Page Capture",
+  "version": "1.0.0",
+  "description": "Capture full-page screenshot dari tab yang sedang aktif. 100% lokal, tanpa koneksi ke server luar.",
+  "permissions": ["activeTab", "scripting", "downloads", "clipboardWrite", "storage", "unlimitedStorage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Full Page Capture",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["result.html", "result.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

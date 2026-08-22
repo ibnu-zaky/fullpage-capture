@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    width: 260px;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 16px;
+    background: #1e1e2e;
+    color: #f0f0f5;
+  }
+  h1 {
+    font-size: 15px;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #7c5cff;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  button:hover { background: #6a4ce0; }
+  button:disabled { background: #444; cursor: not-allowed; }
+  #status {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 8px;
+    min-height: 16px;
+    text-align: center;
+  }
+  .note {
+    font-size: 11px;
+    color: #777;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <h1>📸 Full Page Capture</h1>
+  <button id="captureBtn">Capture Halaman Ini</button>
+  <div id="status"></div>
+  <div class="note">
+    Screenshot akan otomatis di-scroll & digabung, lalu dibuka di tab baru — dari situ kamu bisa pilih Copy to Clipboard atau Download. Semua proses terjadi di browser kamu, tidak ada data yang dikirim keluar.
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
