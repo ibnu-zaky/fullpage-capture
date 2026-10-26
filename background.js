@@ -202,10 +202,15 @@ async function stitchImages(segments, { totalHeight, viewportHeight, viewportWid
 }
 
 function blobToDataUrl(blob) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
+  return blob.arrayBuffer().then((buffer) => {
+    const bytes = new Uint8Array(buffer);
+    const chunks = [];
+    const chunkSize = 0x8000;
+
+    for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+      chunks.push(String.fromCharCode(...bytes.subarray(offset, offset + chunkSize)));
+    }
+
+    return `data:${blob.type};base64,${btoa(chunks.join(''))}`;
   });
 }
